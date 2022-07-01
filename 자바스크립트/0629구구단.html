@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var min;
+        var max;
+        var num1 = parseInt(prompt("첫번째 숫자"));
+        var num2 = parseInt(prompt("두번째 숫자"));
+
+        if (num1 < num2) {
+            min = num1;
+            max = num2;
+        } else if (num1 > num2) {
+            min = num2;
+            max = num1;
+        }
+        document.write("<table border='1px'>");
+        for (var i = min; i <= max; i++) {
+            document.write(`<th>${i}단`);
+        }
+        document.write("</th>");
+
+        for (var t = 1; t <= 9; t++) {
+            document.write("<tr align='center'>");
+            for (var j = min; j <= max; j++) {
+                document.write(`<td>${j}*${t}=${j*t}</td>`);
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+
+</html>

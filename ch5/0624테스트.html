@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>회원 기본 정보</legend>
+            <span>1. 아이디 </span><input type="text" id="id" name="id" maxlength="9" placeholder="영문숫자 사용. 10자미만" required><br>
+            <span>2. 비밀번호 </span><input type="password" id="pw" name="pw" minlength="6" maxlength="10" placeholder="영문숫자 사용. 6~10자리"><br>
+            <span>3. 비밀번호 확인 </span><input type="password" id="pw2" name="pw2" minlength="6" maxlength="10"><br>
+            <span>4. 이름 </span><input type="text" id="name" name="name"><br>
+            <span>5. 나이 </span><input type="number" id="age" name="age" min="0"> <br>
+            <span>6. 생일 </span><input type="date" id="birthdate" name="birthdate"> <br>
+            <span>7. 이메일 주소 </span><input type="email" id="email" name="email" placeholder="zerosole0@gmail.com"> <br>
+            <span>8. 핸드폰 </span><input type="tel" id="phone" name="phone">
+        </fieldset>
+        <fieldset>
+            <legend>회원 추가 정보</legend>
+            <span>1. 직업 </span><input type="text" id="work" name="work"><br>
+            <span>2. 오피스 활용 </span><input type="range" id="range" name="range"> 
+        </fieldset>
+        <fieldset>
+            <input type="submit" value="입력" style="color:white">
+        </fieldset>
+    </form>
+</body>
+
+</html>

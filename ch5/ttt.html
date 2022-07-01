@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <th colspan="2" align="left">1. 회원 기본정보</th>
+                </tr>
+                <tr>
+                    <td>아이디</td>
+                    <td><input type="text" id="id" name="id" maxlength="9" placeholder="영문숫자 사용. 10자미만" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="password" id="pw" name="pw" minlength="6" maxlength="10" placeholder="영문숫자 사용. 6~10자리">
+                    </td>
+                </tr>
+                <tr>
+                    <td>비밀번호 확인</td>
+                    <td><input type="password" id="pw2" name="pw2" minlength="6" maxlength="10">
+                    </td>
+                </tr>
+                <tr>
+                    <td>이름</td>
+                    <td><input type="text" id="name" name="name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>나이</td>
+                    <td><input type="number" id="age" name="age" min="0">
+                    </td>
+                </tr>
+                <tr>
+                    <td>생일</td>
+                    <td><input type="date" id="birthdate" name="birthdate">
+                    </td>
+                </tr>
+                <tr>
+                    <td>이메일 주소</td>
+                    <td><input type="email" id="email" name="email" placeholder="zerosole0@gmail.com">
+                    </td>
+                </tr>
+                <tr>
+                    <td>핸드폰</td>
+                    <td><input type="tel" id="phone" name="phone"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" align="left">2. 회원 추가정보</th>
+                </tr>
+                <tr>
+                    <td>직업</td>
+                    <td><input type="text" id="work" name="work"></td>
+                </tr>
+                <tr>
+                    <td>오피스 활용</td>
+                    <td><input type="range" id="range" name="range"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="입력"></td>
+                </tr>
+            </tbody>
+        </table>
+                
+        
+            
+    </form>
+</body>
+
+</html>

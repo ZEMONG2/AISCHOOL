@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [title ^= "faker"]{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p title="faker">독립 단어는 적용됩니다.</p>
+    <p title="SKT1-faker">하이픈<code class="inlinecode">-</code>으로 연결되어도 접미사는 적용되지 않습니다.</p>
+    <p title="faker-SKT1">하이픈<code class="inlinecode">-</code>으로 연결되고 접두사에 있으면 적용됩니다.</p>
+    <p title="SKT1_faker">언더바<code class="inlinecode">_</code>에 있지만 접미사에 있으면 적용되지 않습니다.</p>
+    <p title="faker_SKT1">언더바<code class="inlinecode">_</code>에 있고 접두사에 있으면 적용됩니다.</p>
+    <p title="faker SKT1">공백으로 작성된 합성어는 접두사에 있을 경우 적용됩니다.</p>
+    <p title="SKT1 faker">공백으로 작성된 합성어는 접미사에 있을 경우 적용되지 않습니다.</p>
+    <p title="fakerSKT1">공백이 없는 합성어도 접두사에 있을 경우 적용됩니다.</p>
+    <p title="SKT1faker">공백이 없는 합성어는 접미사에 있을 경우 적용되지 않습니다.</p>
+</body>
+</html>

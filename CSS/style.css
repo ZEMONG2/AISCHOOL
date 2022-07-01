@@ -1,0 +1,20 @@
+/* input[type="submit"]{
+    border-radius: 15px;
+    margin: 0 auto;
+}
+table{
+    background-color: burlywood;
+    padding: 20px;
+}
+input:not([type="submit"]){
+    width: 100%;
+}
+table{
+    border: 3px solid black;
+} */
+/* form{
+    background-color: aquamarine;
+}
+fieldset{
+    border: none;
+} */

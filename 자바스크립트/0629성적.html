@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        var kind;
+        var hakbun = prompt("학번을 입력하세요.");
+        var name = prompt("이름을 입력하세요.");
+        var kor = parseInt(prompt("국어 성적을 입력하세요."));
+        var eng = parseInt(prompt("영어 성적을 입력하세요."));
+        var math = parseInt(prompt("수학 성적을 입력하세요."));
+        var total = kor + eng + math;
+        var avg = total / 3
+        var grade = parseInt(avg/10);
+        console.log(grade);
+        switch (grade){
+            case 9:
+                kind = '수';
+                break;
+            case 8:
+                kind = '우';
+                break;
+            case 7:
+                kind = '미';
+                break;
+            case 6:
+                kind = '양';
+                break;
+            default:
+                kind = '가';
+        }
+
+        // if (avg >= 90) {
+        //     kind = '수';
+        // } else if (avg >= 80) {
+        //     kind = '우';
+        // } else if (avg >= 70) {
+        //     kind = '미';
+        // } else if (avg >= 60) {
+        //     kind = '양';
+        // } else {
+        //     kind = '가';
+        // }
+        // document.write("<table border='1px'>")
+        // document.write("<tr>")
+        // document.write("<td>학번</td>")
+        // document.write("</tr>")
+        // document.write("<tr>")
+        // document.write("<td>")
+        // document.write(hakbun)
+        // document.write("</td>")
+        // document.write("</tr>")
+        // document.write("</table>")
+
+        // document.write("<table border='1px'><tr><td>학번</td><td>이름</td><td>국어</td><td>영어</td><td>수학</td><td>총점</td><td>평균</td><td>등급</td></tr><tr>");
+        // document.write("<td>" + hakbun + "</td><td>" + name + "</td><td>" + kor + "</td><td>" + eng + "</td><td>" + math + "</td><td>" + total + "</td><td>" + avg + "</td><td>" + kind + "</td></tr></table>");
+        
+        document.write(`<table border='1px'><tr><td>학번</td><td>이름</td><td>국어
+            </td><td>영어</td><td>수학</td><td>총점</td><td>평균</td><td>등급</td></tr><tr>
+            <td>${hakbun}</td><td>${name}</td><td>${kor}</td><td>${eng}</td><td>${math}</td>
+            <td>${total}</td><td>${avg}</td><td>${kind}</td></tr></table>`);
+    
+    </script>
+</body>
+
+</html>

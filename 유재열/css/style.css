@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+aside {
+    display: inline;
+    width: 240px;
+}
+
+.leftSide {
+    float: left;
+}
+
+.rightSide {
+    float: right;
+}
+
+header ul li {
+    list-style: none;
+    float: left;
+    margin-right: 20px;
+}
+
+body {
+    margin: 0 auto;
+    width: 960px;
+    background-color: rgb(29, 28, 28);
+    clear: both;
+}
+
+section {
+    display: inline-block;
+    width: 480px;
+    clear: both;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+iframe{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: blue;
+    font-weight:bold;
+}
+.job{
+    margin-left: 40px;
+}
+.hover:hover{
+    position: relative;
+    bottom: 30px;
+}
+span{
+    color: white;
+}
+.img{
+    display: block;
+    margin: 0 auto;
+}
+h4{
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.section{
+    position:relative;
+    top:310px;
+    background-color: rgba(29, 28, 28, 0.438);
+}
+.list{
+    margin-top: 40px;
+}
+.button{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+}
+.pageButton{
+    display: flex;
+    justify-content: center;
+    margin-top: 220px;
+}
+.detail{
+    text-align: justify;
+}
+footer{
+    margin-top: 10px;
+}
