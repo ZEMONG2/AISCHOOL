@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        header ul li{
+            list-style: none;
+            float: left;
+            margin-right: 10px;
+        }
+        body{
+            width: 960px;
+            background-color:gray;
+        }
+        section{
+            width: 900px;
+            clear: both;
+        }
+        aside{
+            width: 30px;
+        }
+        .leftSide{
+            float: left;
+        }
+        .warrior{
+            background-image: url(https://cdn-lostark.game.onstove.com/2018/obt/asse…ndex_warrior.jpg?2808e164cb40f754004a8d145f88e88c)
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>로스트아크 직업소개</h1>
+        <ul>
+            <li><a href="#">전사</a></li>
+            <li><a href="#">무도가(여)</a></li>
+            <li><a href="#">무도가(남)</a></li>
+            <li><a href="#">헌터(여)</a></li>
+            <li><a href="#">헌터(남)</a></li>
+            <li><a href="#">마법사</a></li>
+            <li><a href="#">암살자</a></li>
+            <li><a href="#">스페셜리스트</a></li>
+        </ul>
+    </header>
+    <section>
+        <article class="warrior">
+            <img src="./img/mark-warrior.png"><h4>전사</h4>
+            <div class="list">
+                <a class="destroyer" href="class-destroyer.html"><img src="./img/mark-destroyer-border.png"></a><span>디스트로이어</span>
+                <a class="warlord" href="class-warlord.html"><img src="./img/mark-warlord-border.png"></a><span>워로드</span>
+                <a class="berserker" href="class-berserker.html"><img src="./img/mark-berserker-border.png"></a><span>버서커</span>
+                <a class="holyknight" href="class-holyknight.html"><img src="./img/mark-holyknight-border.png"></a><span>홀리나이트</span>
+            </div>
+        </article>
+    </section>
+    <aside class="leftSide">
+        <button>LEFT</button>
+    </aside>
+    <aside class="rightSide">
+        <button>RIGHT</button>
+    </aside>
+    <footer>
+        
+    </footer>
+</body>
+</html>

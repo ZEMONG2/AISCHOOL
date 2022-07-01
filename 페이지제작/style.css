@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin-top: 200px;
+}
+section, header, footer, button{
+    width: 360px;
+    margin: 0 auto;
+}
+li {
+    list-style: none;
+    background: #aaaaaa;
+    border-color: #f0f6d6;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    line-height: 20px;
+    padding: 5px 10px;
+    margin-bottom: 2px;
+}
+label{
+    text-align: left;
+}
+input{
+    float: right;
+}
+footer, header{
+    text-align: center;
+}
