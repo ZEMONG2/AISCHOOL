@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var ck;
+        // var cnt = 0;
+        // var num1 = parseInt(prompt("첫번째 수 입력"));
+        // var num2 = parseInt(prompt("두번째 수 입력"));
+        // var min = Math.min(num1, num2);
+        // var max = Math.max(num1, num2);
+        // document.write("[");
+        // for (var i = min; i <= max; i++) {
+        //     ck = true;
+        //     for (var j = 2; j < i; j++) {
+        //         if (i % j == 0) {
+        //             ck = false;
+        //             break;
+        //         }
+        //     }
+        //     if (ck) {
+        //         document.writeln(`${i} `);
+        //         cnt++;
+        //     }
+        // }
+        // document.write("]");
+        // document.write(` 총 갯수 ${cnt}개`);
+        // var ck;
+        // var cnt = 0;
+        // var num1 = parseInt(prompt("첫번째 수 입력"));
+        // var num2 = parseInt(prompt("두번째 수 입력"));
+        // var min = Math.min(num1, num2);
+        // var max = Math.max(num1, num2);
+        // document.write("[");
+        
+        // while(min<=max){
+        //     ck = true;
+        //     var j = 2;
+        //     while(j<min){
+        //         if(min%j==0){
+        //             ck = false;
+        //             break;
+        //         }
+        //         j++;
+        //     }
+            
+        //     if (ck) {
+        //         document.writeln(`${min} `);
+        //         cnt++;
+        //     }
+        //     min++;
+        // }
+
+
+        // document.write("]");
+        // document.write(` 총 갯수 ${cnt}개`);
+
+        var ck;
+        var cnt = 0;
+        var num1 = parseInt(prompt("첫번째 수 입력"));
+        var num2 = parseInt(prompt("두번째 수 입력"));
+        var min = Math.min(num1, num2);
+        var max = Math.max(num1, num2);
+        document.write("[");
+        
+
+        do{
+            ck = true;
+            var j = 3;
+
+            do{
+                if(min%j==0){
+                    ck = false;
+                    break;
+                }
+                j++;
+            }
+            while(j<min);
+
+
+            
+            if (ck) {
+                document.writeln(`${min} `);
+                cnt++;
+            }
+            min++;
+        }
+        while(min<=max);
+
+
+
+
+        document.write("]");
+        document.write(` 총 갯수 ${cnt}개`);
+
+    </script>
+</body>
+
+</html>
