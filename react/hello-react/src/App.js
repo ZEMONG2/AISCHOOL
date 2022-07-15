@@ -11,6 +11,7 @@ import "./App.css";
 // import Say from "./Say";
 // import EventPractice from "./EventPractice";
 import FormInput from "./FormInput";
+import ValidationSample from "./ValidationSample";
 
 // function App() {
 //   // const name = "리엑트";
@@ -64,7 +65,7 @@ import FormInput from "./FormInput";
 // };
 
 const App = () => {
-  return <FormInput />;
+  return <ValidationSample />;
 };
 
 export default App;
