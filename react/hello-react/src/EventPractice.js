@@ -224,7 +224,7 @@ import { useState } from "react";
 
 //
 //
-//
+// 테스트중
 const EventPractice = () => {
   const [form, setForm] = useState({
     userName: "",
