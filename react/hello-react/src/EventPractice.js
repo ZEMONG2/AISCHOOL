@@ -223,7 +223,7 @@
 import { useState } from "react";
 
 //
-//
+// 재 테스트
 // 테스트중
 const EventPractice = () => {
   const [form, setForm] = useState({
