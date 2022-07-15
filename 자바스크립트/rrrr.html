@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Insert title here</title>
+    <script>
+        // 이부분을 완성 할것(필요하면 추가 함수 만드는 것도 가능)
+        // 아이디 및 비밀번호 영어,숫자로만 구성되어 있는지 확인 id >= 'a' && id <= 'z';
+        // 아이디 자리수 부족한지 넘어간지 체크
+        // 비밀번호 서로 같은지 체크 
+        // 전체적인 내용이 다 작성되어있는지 체크
+        // 주민번호 제대로 입력 됐는지 확인
+
+        function check_input() {
+
+            var id = document.getElementById("id").value;
+            var pw1 = document.getElementById("pw1").value;
+            var pw2 = document.getElementById("pw2").value;
+            var email1 = document.getElementById("email1").value;
+            var email2 = document.getElementById("email2").value;
+            var tel1 = document.getElementById("tel1").value;
+            var tel2 = document.getElementById("tel2").value;
+            var tel3 = document.getElementById("tel3").value;
+            var jumin1 = document.getElementById("jumin1").value;
+            var jumin2 = document.getElementById("jumin2").value;
+            var jumin;
+            var intro = document.getElementById("intro").value;
+            var gender = document.input_form.gender.value;
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <form name="input_form" method="post">
+        <table align="center" border="1">
+            <tr>
+                <td width="110">아이디</td>
+                <td width="400">
+                    <input type="text" id="id" name="id" size="30" style="ime-mode:inactive" required
+                        placeholder="최소6~최대10, 숫자와알파벳만 사용">
+                </td>
+            </tr>
+            <tr>
+                <td width="110">비밀번호</td>
+                <td width="400">
+                    <input type="password" id="pw1" name="pw1" size="30" style="ime-mode:inactive"
+                        placeholder="최소6~최대10, 숫자와알파벳만 사용">
+                </td>
+            </tr>
+            <tr>
+                <td width="110">비밀번호 확인</td>
+                <td width="400">
+                    <input type="password" id="pw2" name="pw2" size="30" style="ime-mode:inactive"
+                        placeholder="최소6~최대10, 숫자와알파벳만 사용">
+                </td>
+            </tr>
+            <tr>
+                <td width="110">주민번호</td>
+                <td width="400"><input type="text" id="jumin1" name="jumin1" size="6" maxlength="6"> -
+                    <input type="text" id="jumin2" name="jumin2" size="7" maxlength="7">
+                </td>
+            </tr>
+            <tr>
+                <td width="110">성별</td>
+                <td width="400"><input type="radio" name="gender" value="남자">남자
+                    <input type="radio" name="gender" value="여자">여자
+                </td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td><input type="tel" id="tel1" name="tel1" size="3" maxlength="3"> -
+                    <input type="tel" id="tel2" name="tel2" size="4" maxlength="4"> -
+                    <input type="tel" id="tel3" name="tel3" size="4" maxlength="4">
+                </td>
+            </tr>
+            <tr>
+                <td width="110">이메일</td>
+                <td width="400"><input type="text" id="email1" name="email1" size="10" style="ime-mode:inactive"> @
+                    <select id="email2" name="email2">
+                        <option value="">메일주소선택
+                        <option value="hanmail.net">hanmail.net
+                        <option value="naver.com">naver.com
+                        <option value="nate.com">nate.com
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td width="110">취미</td>
+                <td width="400">
+                    <input type="checkbox" name="hobby" value="등산">등산
+                    <input type="checkbox" name="hobby" value="독서">독서
+                    <input type="checkbox" name="hobby" value="스키">스키
+                    <input type="checkbox" name="hobby" value="음악">음악
+                    <input type="checkbox" name="hobby" value="영화">영화
+                </td>
+            </tr>
+            <tr>
+                <td width="110">자기소개</td>
+                <td width="400"><textarea id="intro" name="intro" rows="5" cols="50" style="ime-mode:active"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" width="500">
+                    <input type="button" value="입력" onclick="check_input();">
+                    <input type="reset" name="reset" value="취소">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

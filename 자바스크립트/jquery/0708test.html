@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btnAdd').click(function () {
+
+                $('#list').append(`<tr><td><input type="text" size = "10"/></td><td><input type="text" size = "10"/></td><td><input type="button" class="btnRemove" value="Del" /></td></tr>`)
+
+            });
+
+            $('#list').on("click", ".btnRemove", function () {
+                $(this).parent().parent().remove();
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <input type="button" id="btnAdd" value="추가" />
+    <br><br>
+    <table border="1" id="list">
+
+    </table>
+</body>
+
+</html>

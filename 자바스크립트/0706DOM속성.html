@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // window.onload = function () {
+        //     var image = document.getElementById("image");
+
+
+        //     image.src = "../img/Penguins.jpg";
+        //     image.width = 300;
+        //     image.height = 200;
+
+        // };
+
+
+        // window.onload = function () {
+        //     document.body.setAttribute('data-custom', 'value');
+
+        //     var dataCustom = document.body.getAttribute("data-custom");
+        //     alert(dataCustom);
+
+        // };
+        var resId;
+        window.onload = function () {
+            var clock = document.getElementById('clock');
+
+            resId = setInterval(start_clock, 1000);
+
+        };
+
+        function start_clock() {
+            var now = new Date();
+
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var day = now.getDay();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            var result = `${year}년 ${month}월 ${day}일 ${hour}시 ${minute}분 ${second}초`;
+            clock.innerHTML = result;
+        }
+
+        function stop() {
+            clearInterval(resId);
+        }
+        var start = function () {
+            resId = setInterval(start_clock, 1000);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <!-- <img id="image"> -->
+    <h3 id="clock"></h3>
+    <button onclick="stop();">stop</button>
+    <button onclick="start();">start</button>
+</body>
+
+</html>

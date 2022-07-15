@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: Verdana, sans-serif;
+		}
+
+		.mySlides {
+			display: none;
+		}
+
+		img {
+			vertical-align: middle;
+		}
+
+		.slideshow-container {
+			max-width: 400px;
+			max-height: 300px;
+			position: relative;
+			margin: auto;
+		}
+
+		/* Caption text */
+		.text {
+			color: #F6CEF5;
+			font-size: 15px;
+			padding: 8px 12px;
+			position: absolute;
+			bottom: 8px;
+			width: 100%;
+			text-align: center;
+		}
+
+		/* Number text */
+		.numbertext {
+			color: red;
+			font-size: 12px;
+			padding: 8px 12px;
+			position: absolute;
+			top: 0;
+		}
+
+		/* The dots */
+		.dot {
+			height: 15px;
+			width: 15px;
+			margin: 0px 0px 2px 2px;
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+			transition: background-color 0.6s ease;
+		}
+
+		.active {
+			background-color: #717171;
+		}
+
+		/* Fading animation */
+		.fade {
+			-webkit-animation-name: fade777;
+			-webkit-animation-duration: 2s;
+			animation-name: fade777;
+			animation-duration: 2s;
+		}
+
+		@-webkit-keyframes fade777 {
+			from {
+				opacity: .4
+			}
+
+			to {
+				opacity: 1
+			}
+		}
+
+		@keyframes fade777 {
+			from {
+				opacity: .4
+			}
+
+			to {
+				opacity: 1
+			}
+		}
+
+		/* 모바일 화면 글자 크기 조정 */
+		@media only screen and (max-width: 200px) {
+			.text {
+				font-size: 11px
+			}
+		}
+	</style>
+	<script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+	<script>
+		$(document).ready(function () {
+			var slideIndex = 0;
+			showSlides();
+
+			function showSlides() {
+				var i;
+				var slides = document.getElementsByClassName("mySlides");
+				var dots = document.getElementsByClassName("dot");
+				for (i = 0; i < slides.length; i++) {
+					slides[i].style.display = "none";
+				}
+				slideIndex++;
+				if (slideIndex > slides.length) { slideIndex = 1; }
+				for (i = 0; i < dots.length; i++) {
+					dots[i].className = dots[i].className.replace(" active", "");
+				}
+				slides[slideIndex - 1].style.display = "block";
+				dots[slideIndex - 1].className += " active";
+				setTimeout(showSlides, 2000);
+			}
+		});
+	</script>
+
+</head>
+
+<body>
+	<div class="slideshow-container">
+		<div class="mySlides fade">
+			<div class="numbertext">1 / 4</div>
+			<img src="./images/jeju1.jpg" width="400px" height="300px">
+			<div class="text">제주 1</div>
+		</div>
+		<div class="mySlides fade">
+			<div class="numbertext">2 / 4</div>
+			<img src="./images/jeju2.jpg" width="400px" height="300px">
+			<div class="text">제주 2</div>
+		</div>
+		<div class="mySlides fade">
+			<div class="numbertext">3 / 4</div>
+			<img src="./images/jeju3.jpg" width="400px" height="300px">
+			<div class="text">제주 3</div>
+		</div>
+		<div class="mySlides fade">
+			<div class="numbertext">4 / 4</div>
+			<img src="./images/jeju4.jpg" width="400px" height="300px">
+			<div class="text">제주 4</div>
+		</div>
+	</div>
+	<br>
+	<div style="text-align:center">
+		<span class="dot"></span>
+		<span class="dot"></span>
+		<span class="dot"></span>
+		<span class="dot"></span>
+	</div>
+
+</body>
+
+</html>

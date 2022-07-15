@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         var k = 0;
-        for(var i = 1; i < 3; i++) {
-            for(var j = 1; j < 4; j++) {
+        for (var i = 1; i < 3; i++) {
+            for (var j = 1; j < 4; j++) {
                 console.log("i=", i, ", j=", j, ", k=", ++k);
             }
         }
         console.log("--------------------");
-        var t=0;
-        var s=1;
-        var p=1;
-        while(s<3){
-            while(p<4){
+        var t = 0;
+        var s = 1;
+        var p = 1;
+        while (s < 3) {
+            while (p < 4) {
                 console.log("s=", s, ", p=", p, ", t=", ++t);
                 p++;
             }
-            p=1;
+            p = 1;
             s++;
         }
     </script>
 </body>
+
 </html>

@@ -1,0 +1,10 @@
+.react {
+  background: black;
+  color: aqua;
+  font-size: 48px;
+  font-weight: bold;
+  padding: 16;
+}
+.counter {
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#box').css({
+                width: 100,
+                height: 100,
+                background: 'orange',
+                borderRadius: '0px'
+            }).on('click', function () {
+                $(this).css({
+                    background: 'red',
+                    borderRadius: '50px'
+                });
+            }).on('mouseenter', function () {
+                $(this).css({
+                    background: 'blue',
+                    borderRadius: '50px'
+                });
+            }).on('mouseleave', function () {
+                $(this).css({ background: 'orange', borderRadius: '0px' });
+            })
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</body>
+
+</html>

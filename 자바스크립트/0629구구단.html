@@ -10,32 +10,60 @@
 
 <body>
     <script>
-        var min;
-        var max;
-        var num1 = parseInt(prompt("첫번째 숫자"));
-        var num2 = parseInt(prompt("두번째 숫자"));
+        function inputNumber() {
+            var num1, num2;
+            num1 = parseInt(prompt("첫번째 숫자"));
+            num2 = parseInt(prompt("두번째 숫자"));
 
-        if (num1 < num2) {
-            min = num1;
-            max = num2;
-        } else if (num1 > num2) {
-            min = num2;
-            max = num1;
+            return { num1: num1, num2: num2 };
         }
-        document.write("<table border='1px'>");
-        for (var i = min; i <= max; i++) {
-            document.write(`<th>${i}단`);
-        }
-        document.write("</th>");
 
-        for (var t = 1; t <= 9; t++) {
-            document.write("<tr align='center'>");
-            for (var j = min; j <= max; j++) {
-                document.write(`<td>${j}*${t}=${j*t}</td>`);
+
+        function numberCompare(num1, num2){
+            var min, max;
+            
+            if (num1 < num2) {
+                    min = num1;
+                    max = num2;
+                } else if (num1 > num2) {
+                    min = num2;
+                    max = num1;
+                }
+                return { min: min, max: max }
+
+        }
+        function gugudanPrint(min, max){
+            document.write("<table border='1px'>");
+            for (var i = min; i <= max; i++) {
+                document.write(`<th>${i}단`);
             }
-            document.write("</tr>");
+            document.write("</th>");
+
+            for (var t = 1; t <= 9; t++) {
+                document.write("<tr align='center'>");
+                for (var j = min; j <= max; j++) {
+                    document.write(`<td>${j}*${t}=${j * t}</td>`);
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
         }
-        document.write("</table>");
+        
+        function gugudan() {
+            var num1, num2, min, max;
+
+            var num = inputNumber();
+            num1 = num.num1;
+            num2 = num.num2;
+            
+            var minMax = numberCompare(num1,num2);
+            max = minMax.max;
+            min = minMax.min;
+            
+            gugudanPrint(min,max);
+           
+        }
+        gugudan();
     </script>
 </body>
 

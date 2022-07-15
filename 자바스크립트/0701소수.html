@@ -39,7 +39,7 @@
         // var min = Math.min(num1, num2);
         // var max = Math.max(num1, num2);
         // document.write("[");
-        
+
         // while(min<=max){
         //     ck = true;
         //     var j = 2;
@@ -50,7 +50,7 @@
         //         }
         //         j++;
         //     }
-            
+
         //     if (ck) {
         //         document.writeln(`${min} `);
         //         cnt++;
@@ -62,43 +62,121 @@
         // document.write("]");
         // document.write(` 총 갯수 ${cnt}개`);
 
-        var ck;
-        var cnt = 0;
-        var num1 = parseInt(prompt("첫번째 수 입력"));
-        var num2 = parseInt(prompt("두번째 수 입력"));
-        var min = Math.min(num1, num2);
-        var max = Math.max(num1, num2);
-        document.write("[");
-        
+        // //함수 소수
 
-        do{
-            ck = true;
-            var j = 3;
+        // var ck;
+        // var cnt = 0;
 
-            do{
-                if(min%j==0){
-                    ck = false;
-                    break;
-                }
-                j++;
-            }
-            while(j<min);
+        // function inputData() {
+        //     var num1 = parseInt(prompt("첫번째 수 입력"));
+        //     var num2 = parseInt(prompt("두번째 수 입력"));
+        //     return { num1: num1, num2: num2 };
+        // }
+
+        // function minmaxProc(num1, num2) {
+
+        //     var min, max;
+
+        //     if (num1 < num2) {
+        //         min = num1;
+        //         max = num2;
+        //     } else if (num1 > num2) {
+        //         min = num2;
+        //         max = num1;
+        //     }
+        //     return { min: min, max: max };
+        // }
+
+        // function primeNumber(min, max) {
+        //     document.write("[");
+        //     while (min <= max) {
+        //         ck = true;
+        //         var j = 2;
+        //         while (j < min) {
+        //             if (min % j == 0) {
+        //                 ck = false;
+        //                 break;
+        //             }
+        //             j++;
+        //         }
+
+        //         if (ck) {
+        //             document.writeln(`${min} `);
+        //             cnt++;
+        //         }
+        //         min++;
+        //     }
+        //     document.write("]");
+        //     return cnt;
+        // }
+        // function tatal_count(cnt) {
+
+        //     document.write(` 총 갯수 ${cnt}개`);
+        // }
+
+        // var inputNum = inputData();
+        // var minMax = minmaxProc(inputNum.num1, inputNum.num2);
+        // var primeNumber = primeNumber(minMax.min, minMax.max);
+        // tatal_count(cnt);
 
 
-            
-            if (ck) {
-                document.writeln(`${min} `);
-                cnt++;
-            }
-            min++;
+        //화살표 함수 소수
+
+
+
+        const inputData = () => {
+            var num1 = parseInt(prompt("첫번째 수 입력"));
+            var num2 = parseInt(prompt("두번째 수 입력"));
+            return { num1: num1, num2: num2 };
         }
-        while(min<=max);
 
+        const minmaxProc = (num1, num2) => {
 
+            var min, max;
 
+            if (num1 < num2) {
+                min = num1;
+                max = num2;
+            } else if (num1 > num2) {
+                min = num2;
+                max = num1;
+            }
+            return { min: min, max: max };
+        }
 
-        document.write("]");
-        document.write(` 총 갯수 ${cnt}개`);
+        const primeNumber = (min, max) => {
+            var ck;
+            var cnt = 0;
+            document.write("[");
+            while (min <= max) {
+                ck = true;
+                var j = 2;
+                while (j < min) {
+                    if (min % j == 0) {
+                        ck = false;
+                        break;
+                    }
+                    j++;
+                }
+
+                if (ck) {
+                    document.writeln(`${min} `);
+                    cnt++;
+                }
+                min++;
+            }
+            document.write("]");
+            return cnt;
+        }
+        const tatal_count = (cnt) => {
+
+            document.write(` 총 갯수 ${cnt}개`);
+        }
+
+        var inputNum = inputData();
+        var minMax = minmaxProc(inputNum.num1, inputNum.num2);
+        var cnt = primeNumber(minMax.min, minMax.max);
+        tatal_count(cnt);
 
     </script>
 </body>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: auto;
+            text-align: center;
+        }
+
+        ::placeholder {
+            text-align: center;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#btnAdd').click(function () {
+                var name = $('#name').val();
+                var score = $('#score').val();
+                $('#list2').append(`<tr>
+                    <td>${name}</td>
+                    <td>${score}</td>
+                    <td><input type="button" class="btnRemove" value="Del" /></td>
+                    </tr>`)
+                $('#name').val("");
+                $('#score').val("");
+            });
+
+            $('#list2').on("click", ".btnRemove", function () {
+                $(this).parent().parent().remove();
+            });
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <table border="1" id="list1">
+        <tr>
+            <td><input type="text" size="10" id="name" placeholder="이름입력" /></td>
+            <td><input type="text" size="10" id="score" placeholder="점수입력" /></td>
+            <td><input type="button" id="btnAdd" value="Add" /></td>
+        </tr>
+    </table>
+    <br>
+    <table border="1" id="list2">
+        <tr>
+            <th width="107px">이름</th>
+            <th width="107px">점수</th>
+            <td width="43px">&nbsp;</td>
+        </tr>
+    </table>
+</body>
+
+</html>

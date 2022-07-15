@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num = 1;
+        let num1 = parseInt(prompt("행"));
+        let num2 = parseInt(prompt("열"));
+        let maxNum = num1 * num2;
+        let row = 0;
+        let col = 0;
+
+        if (num1 >= num2) {
+            let cycle = num1 / 2;
+        } else {
+            let cycle = num2 / 2;
+        }
+
+        for (var c = 1; c <= cycle; i++) {
+
+            const arr = [num1][num2];
+            for (var i = row; i < num1; i++) {
+                arr[row][i] = num++;
+            }
+            row += 1;
+            for (var i = col; i < num2; i++) {
+                arr[i][num2 - 1] = num++;
+
+            }
+            row += 1;
+            for (var i = 0; i < num1; i++) {
+                arr[num2][2] = num++;
+
+            }
+            col += 1;
+            for (var i = 0; i < num1; i++) {
+                arr[0][i] = num++;
+
+            }
+            row += 1;
+        }
+    </script>
+</body>
+
+</html>

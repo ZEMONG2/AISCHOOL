@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="inputForm">
+        <input type="text" id="jumin1" name="jumin1" size="6" maxlength="6"> -
+        <input type="text" id="jumin2" name="jumin2" size="7" maxlength="7">
+        <p id="ckText" style="color: red;"></p>
+        <button id="jumin" onclick="check();">입력</button>
+        <!-- <button id="jumin" onclick="check(this.form);">입력</button> -->
+        <script>
+            // 앞 6자리 에 차례로 2,3,4,5,6,7 을 곱하고
+            // 뒤 7자리중 마지막 자리를 제외한 값에 8,9,2,3,4,5 를 곱한후
+            // 각자리 수를 전부 더한다
+            // 모두 더한 값을 11로 나누고 11에서 뺀다
+            // 다시 10로 나눠 나머지를 구한다.
+            // 이값을 주민번호 마지막 숫자와 비교하여 값이 동일할 경우 유요한 주민번호이다.
+
+            function check() {
+                //function check(form) {
+
+                var str;
+                var total = 0;
+                var ck = 2;
+                var ckNumber = 11;
+                let jumin2 = document.getElementById("jumin2").value;
+                let jumin1 = document.getElementById("jumin1").value;
+                // let jumin1 = document.inputForm.jumin1.value;
+                // let jumin2 = document.inputForm.jumin2.value;
+                // let jumin1 = document.form.jumin1.value;
+                // let jumin2 = document.form.jumin2.value;
+                let number1 = jumin1 + "-" + jumin2
+                let number2 = number1.replace("-", "")
+                // var number1 = prompt('주민번호를 입력해주세요');
+                // var number2 = number1.replace("-", "");
+
+                for (var i = 0; i < number2.length - 1; i++) {
+                    total += number2[i] * ck;
+                    ck++;
+
+                    if (ck == 10) {
+                        ck = 2;
+                    }
+                }
+
+                total = total % 11;
+                ckNumber -= total;
+
+
+                if (number2[number2.length - 1] == ckNumber % 10) {
+                    document.getElementById('ckText').innerText = "올바른 주민번호입니다."
+                    str = `${number1} (O)`;
+                } else {
+                    document.getElementById('ckText').innerText = "잘못된 주민번호입니다."
+                    str = `${number1} (X)`;
+                }
+                console.log(str);
+            }
+        </script>
+</body>
+
+</html>

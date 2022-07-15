@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+    span {
+        float: right;
+        font-size: 5em;
+    }
+</style>
+
+<body>
+    <header>
+        <span>점수 : 0</span>
+    </header>
+    <div id="box" style="border-radius: 50px;"></div>
+    <script>
+
+
+        var cnt = 0;
+
+        $('body').css("position", "relative");
+        $('#box').css({
+            width: 30,
+            height: 30,
+            background: 'orange',
+            position: "absolute",
+            top: 400,
+            left: 400,
+        });
+
+        $('#box').on('mouseenter', function () {
+
+            $('#box').css({
+                background: 'red'
+            });
+        });
+
+
+
+        $('#box').on('click', function () {
+
+            var ran1 = Math.floor(Math.random() * 500);
+            var ran2 = Math.floor(Math.random() * 500);
+            var ran3 = Math.floor(Math.random() * 500);
+            var ran4 = Math.floor(Math.random() * 500);
+            $('#box').css({
+                background: 'orange',
+                top: ran1,
+                right: ran2,
+                bottom: ran3,
+                left: ran4
+            });
+            cnt++;
+            $('span').text("점수 : " + cnt);
+        });
+    </script>
+</body>
+
+</html>

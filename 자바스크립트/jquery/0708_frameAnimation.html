@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        var res;
+        var count = 0;
+        var frames = [];
+        var image;
+        window.onload = function () {
+            image = document.getElementById("image");
+            for (var i = 0; i < 15; i++) {
+                frames.push(`./img/${i}.png`);
+            };
+
+
+        };
+        function start() {
+            res = setInterval(function () {
+                image.src = frames[count % frames.length];
+                count += 1;
+
+            }, 1000 / 20);
+            var cnt = 0;
+            $('#image').css({
+                position: "relative",
+                left: 0,
+            }).animate({
+                left: 900,
+            }, 2500);
+
+        }
+
+        function stop() {
+            clearInterval(res);
+        }
+
+        function back() {
+            var reverseFrames = frames.reverse();
+            res = setInterval(function () {
+
+                image.src = reverseFrames[count % reverseFrames.length];
+                count += 1;
+
+            }, 1000 / 20);
+            var cnt = 0;
+            $('#image').css({
+                position: "relative",
+                left: 900,
+            }).animate({
+                left: 0,
+            }, 2500);
+        }
+
+    </script>
+</head>
+
+<body>
+    <img id="image" /><br>
+    <input type="button" value="시작" onclick="start();">
+    <input type="button" value="중지" onclick="stop();">
+    <input type="button" value="뒤로" onclick="back();">
+</body>
+
+</html>

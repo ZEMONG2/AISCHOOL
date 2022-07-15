@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <button>클릭</button>
+    <!-- <h1>Click</h1> -->
+    <script>
+
+        $('button').click(function () {
+            $('body').append('<h1>click</h1>');
+        })
+
+        // $('h1').click(function () {
+        //     alert('click');
+        // })
+        $('body').on("click", 'h1', function () {
+            alert('click');
+        })
+
+        // const ck = document.querySelector("h1");
+        // ck.addEventListener("click", function () {
+        //     alert('click');
+        // });
+    </script>
+</body>
+
+</html>

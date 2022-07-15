@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //객체 리터럴
+        var person ={
+            name: 'lee',
+            age:30,
+            sayHello: function(){
+                console.log(`Hello! My name is ${this.name}`);
+                console.log(`Hello! My name is ${this.age}`);
+                console.log(`Hello! My name is ${this.tel}`);
+                str =`<table border="1" align="center">`;
+                str +=`<tr><th>name</th><th>age</th><th>tel</th></tr>`;
+                str +=`<tr><td>${this.name}</td><td>${this.age}</td><td>${this.tel}</td></tr></table>`;
+                return document.write(str);
+            }
+        };
+        // console.log(typeof person);
+        // console.log(person);
+        person.tel = "010-0000-0000";
+        person.sayHello();
+    </script>
+</body>
+</html>
