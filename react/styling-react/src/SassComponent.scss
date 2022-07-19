@@ -1,0 +1,54 @@
+@import "./styles/utils.scss";
+
+.SassComponent {
+  display: flex;
+  background: $oc-gray-2;
+  @include media("<768px") {
+    background: $oc-gray-9;
+  }
+  .box {
+    //일반 CSS에서는 .SassComponent .box와 마찬가지
+    background: red;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    &.red {
+      // .red클래스가 .box와 함께 사용 되었을때
+      background: $red;
+      @include square(1);
+    }
+    &.orange {
+      // .red클래스가 .box와 함께 사용 되었을때
+      background: $orange;
+      @include square(2);
+    }
+    &.yellow {
+      // .red클래스가 .box와 함께 사용 되었을때
+      background: $yellow;
+      @include square(3);
+    }
+    &.green {
+      // .red클래스가 .box와 함께 사용 되었을때
+      background: $green;
+      @include square(4);
+    }
+    &.blue {
+      // .red클래스가 .box와 함께 사용 되었을때
+      background: $blue;
+      @include square(5);
+    }
+    &.indigo {
+      // .red클래스가 .box와 함께 사용 되었을때
+      background: $indigo;
+      @include square(6);
+    }
+    &.violet {
+      // .red클래스가 .box와 함께 사용 되었을때
+      background: $violet;
+      @include square(7);
+    }
+    &:hover {
+      // .box에 마우스를 올렸을때
+      background: black;
+    }
+  }
+}
