@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import MemberManagement from './components/MemberManagement';
+import MemberInsert from './components/MemberInsert';
+import MemberList from './components/MemberList';
 
-function App() {
+const App = () => {
+  const [members, setMembers] = useState([
+    {
+      id: 'admin',
+      pw: 12345,
+      email: 'admin@example.com',
+      gender: '남',
+    },
+    {
+      id: 'test',
+      pw: 1234,
+      email: 'test@example.com',
+      gender: '여',
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MemberManagement>
+      <MemberInsert />
+      <MemberList members={members} />
+    </MemberManagement>
   );
-}
+};
 
 export default App;
