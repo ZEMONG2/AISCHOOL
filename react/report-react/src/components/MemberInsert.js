@@ -1,34 +1,26 @@
 import { useCallback, useState } from 'react';
 
 const MemberInsert = () => {
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [gender, setGender] = useState('');
+  const [form, setForm] = useState({
+    id: '',
+    password: '',
+    email: '',
+    gender: '',
+  });
 
-  //   const { id, password, email, gender } = form;
+  const onChange = useCallback(
+    (e) => {
+      const nextForm = {
+        ...form,
+        [e.target.name]: e.target.value,
+      };
+      setForm(nextForm);
 
-  //   const onChange = useCallback((e) => {
-  //     const nextForm = {
-  //       ...form,
-  //       [e.target.name]: e.target.value,
-  //     };
-  //     setForm(nextForm);
-  //     console.log([e.target.name] + ':' + e.target.value);
-  //   });
-
-  const onChangeId = useCallback((e) => {
-    setId(e.target.value);
-  }, []);
-  const onChangePassword = useCallback((e) => {
-    setPassword(e.target.value);
-  }, []);
-  const onChangeEmail = useCallback((e) => {
-    setEmail(e.target.value);
-  }, []);
-  const onChangeGender = useCallback((e) => {
-    setGender(e.target.value);
-  }, []);
+      console.log([e.target.name] + ':' + e.target.value);
+    },
+    [form],
+  );
+  const { id, password, email, gender } = form;
 
   return (
     <form className="MemberInsert">
@@ -36,26 +28,40 @@ const MemberInsert = () => {
         <tr>
           <td>아이디</td>
           <td>
-            <input type="text" placeholder="아이디를 입력하세요" />
+            <input
+              type="text"
+              placeholder="아이디를 입력하세요"
+              onChange={onChange}
+            />
           </td>
         </tr>
         <tr>
           <td>비밀번호</td>
           <td>
-            <input type="text" placeholder="비밀번호를 입력하세요" />
+            <input
+              type="text"
+              placeholder="비밀번호를 입력하세요"
+              onChange={onChange}
+            />
           </td>
         </tr>
         <tr>
           <td>이메일</td>
           <td>
-            <input type="email" placeholder="이메일을 입력하세요" />
+            <input
+              type="email"
+              placeholder="이메일을 입력하세요"
+              onChange={onChange}
+            />
           </td>
         </tr>
         <tr>
           <td>성별</td>
           <td>
-            <input type="radio" name="gender" value="남" />남
-            <input type="radio" name="gender" value="여" />여
+            <input type="radio" name="gender" value="남" onChange={onChange} />
+            남
+            <input type="radio" name="gender" value="여" onChange={onChange} />
+            여
           </td>
         </tr>
         <tr>
