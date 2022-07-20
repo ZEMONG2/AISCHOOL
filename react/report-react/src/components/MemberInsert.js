@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-const MemberInsert = ({ onInsert }) => {
+const MemberInsert = ({ onInsert, onUpdate }) => {
   const [form, setForm] = useState({
     idx: '',
     id: '',
@@ -9,12 +9,15 @@ const MemberInsert = ({ onInsert }) => {
     gender: '',
   });
 
+  // checked: !form.checked,
   const onChange = useCallback(
     (e) => {
       const nextForm = {
         ...form,
         [e.target.name]: e.target.value,
       };
+      // setForm(nextForm.filter(([e.target.name] === 'gender') !== checked));
+
       setForm(nextForm);
       console.log(nextForm);
     },
@@ -24,22 +27,23 @@ const MemberInsert = ({ onInsert }) => {
   const onSubmit = useCallback(
     (e) => {
       onInsert(form);
-      console.log(form);
-      setForm({
+      const formDatas = {
         idx: '',
         id: '',
         password: '',
         email: '',
         gender: '',
         checked: false,
-      });
-      // e.target.input.prop('checked', false);
+      };
 
+      // formDatas.filter((formData) => formData.checked !== false);
+      // e.target.input.prop('checked', false);
+      setForm(formDatas);
       e.preventDefault();
     },
     [onInsert, form],
   );
-  // const onUpdate = useCallback((e) => {});
+
   const { idx, id, password, email, gender, checked } = form;
 
   return (

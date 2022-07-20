@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
-import MemberManagement from './components/MemberManagement';
+import MemberTemplate from './components/MemberTemplate';
 import MemberInsert from './components/MemberInsert';
 import MemberList from './components/MemberList';
 
@@ -33,14 +33,8 @@ const App = () => {
   const onUpdate = useCallback(
     (idx) => {
       const memberCheck = members.filter((member) => member.idx === idx)[0];
-      const memberUpdate = {
-        idx: memberCheck.idx,
-        id: memberCheck.id,
-        password: memberCheck.password,
-        email: memberCheck.email,
-        gender: memberCheck.gender,
-      };
-      console.log(memberUpdate);
+      console.log(memberCheck);
+      return memberCheck;
     },
     [members],
   );
@@ -57,7 +51,7 @@ const App = () => {
   };
 
   return (
-    <MemberManagement>
+    <MemberTemplate>
       <MemberInsert onInsert={onInsert} />
       <table>
         <tr>
@@ -72,9 +66,10 @@ const App = () => {
           members={members}
           onRemoveCheck={onRemoveCheck}
           onUpdate={onUpdate}
+          // inputUpdate={inputUpdate}
         />
       </table>
-    </MemberManagement>
+    </MemberTemplate>
   );
 };
 

@@ -1,5 +1,4 @@
 import React from 'react';
-
 const MemberListItem = ({ member, onRemoveCheck, onUpdate }) => {
   const { idx, id, password, email, gender } = member;
 
