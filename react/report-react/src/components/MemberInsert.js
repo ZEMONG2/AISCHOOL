@@ -1,7 +1,8 @@
 import { useCallback, useState } from 'react';
 
-const MemberInsert = () => {
+const MemberInsert = ({ onInsert }) => {
   const [form, setForm] = useState({
+    idx: '',
     id: '',
     password: '',
     email: '',
@@ -15,22 +16,43 @@ const MemberInsert = () => {
         [e.target.name]: e.target.value,
       };
       setForm(nextForm);
-
-      console.log([e.target.name] + ':' + e.target.value);
+      console.log(nextForm);
     },
     [form],
   );
-  const { id, password, email, gender } = form;
+
+  const onSubmit = useCallback(
+    (e) => {
+      onInsert(form);
+      console.log(form);
+      setForm({
+        idx: '',
+        id: '',
+        password: '',
+        email: '',
+        gender: '',
+        checked: false,
+      });
+      // e.target.input.prop('checked', false);
+
+      e.preventDefault();
+    },
+    [onInsert, form],
+  );
+  // const onUpdate = useCallback((e) => {});
+  const { idx, id, password, email, gender, checked } = form;
 
   return (
-    <form className="MemberInsert">
+    <form className="MemberInsert" onSubmit={onSubmit}>
       <table>
         <tr>
           <td>아이디</td>
           <td>
             <input
               type="text"
+              name="id"
               placeholder="아이디를 입력하세요"
+              value={id}
               onChange={onChange}
             />
           </td>
@@ -40,6 +62,8 @@ const MemberInsert = () => {
           <td>
             <input
               type="text"
+              name="password"
+              value={password}
               placeholder="비밀번호를 입력하세요"
               onChange={onChange}
             />
@@ -50,6 +74,8 @@ const MemberInsert = () => {
           <td>
             <input
               type="email"
+              name="email"
+              value={email}
               placeholder="이메일을 입력하세요"
               onChange={onChange}
             />

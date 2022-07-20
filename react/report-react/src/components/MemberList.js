@@ -1,12 +1,17 @@
 import MemberListItem from './MemberListItem';
 
-const MemberList = ({ members }) => {
+const MemberList = ({ members, onRemoveCheck, onUpdate }) => {
   return (
-    <div className="MemberList">
+    <>
       {members.map((member) => (
-        <MemberListItem member={member} key={member.id} />
+        <MemberListItem
+          member={member}
+          key={member.idx}
+          onRemoveCheck={onRemoveCheck}
+          onUpdate={onUpdate}
+        />
       ))}
-    </div>
+    </>
   );
 };
 

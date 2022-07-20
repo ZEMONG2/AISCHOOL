@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useRef } from 'react';
+import { useRef } from "react";
 
 var hobbyArr = "";
 const FormInput = () => {
@@ -83,10 +83,9 @@ const FormInput = () => {
           inputRef.current[i + 1].focus();
         }
       }
-      console.log(inputRef.current)
+      console.log(inputRef.current);
     }
-  }
-
+  };
 
   return (
     <form name="input_form" method="post">
@@ -98,7 +97,7 @@ const FormInput = () => {
             <td width="400">
               <input
                 type="text"
-                ref={ref => (inputRef.current[0]) = ref}
+                ref={(ref) => (inputRef.current[0] = ref)}
                 // ref={checkRef}
                 name="id"
                 size="30"
@@ -114,7 +113,7 @@ const FormInput = () => {
             <td width="110">비밀번호</td>
             <td width="400">
               <input
-                ref={ref => (inputRef.current[1]) = ref}
+                ref={(ref) => (inputRef.current[1] = ref)}
                 type="password"
                 name="pw1"
                 size="30"
@@ -130,7 +129,7 @@ const FormInput = () => {
             <td width="400">
               <input
                 type="password"
-                ref={ref => (inputRef.current[2]) = ref}
+                ref={(ref) => (inputRef.current[2] = ref)}
                 name="pw2"
                 size="30"
                 placeholder="최소6~최대10, 숫자와알파벳만 사용"
@@ -147,7 +146,7 @@ const FormInput = () => {
                 size="6"
                 maxLength="6"
                 value={jumin1}
-                ref={ref => (inputRef.current[3]) = ref}
+                ref={(ref) => (inputRef.current[3] = ref)}
                 onChange={onChange}
                 onKeyPress={onKeyPress}
               />
@@ -158,7 +157,7 @@ const FormInput = () => {
                 size="7"
                 maxLength="7"
                 value={jumin2}
-                ref={ref => (inputRef.current[4]) = ref}
+                ref={(ref) => (inputRef.current[4] = ref)}
                 onChange={onChange}
                 onKeyPress={onKeyPress}
               />
@@ -179,7 +178,6 @@ const FormInput = () => {
                 name="gender"
                 value="여자"
                 onChange={onChange}
-
               />
               여자
             </td>
@@ -193,7 +191,7 @@ const FormInput = () => {
                 size="3"
                 maxLength="3"
                 value={tel1}
-                ref={ref => (inputRef.current[5]) = ref}
+                ref={(ref) => (inputRef.current[5] = ref)}
                 onChange={onChange}
                 onKeyPress={onKeyPress}
               />
@@ -204,7 +202,7 @@ const FormInput = () => {
                 size="4"
                 maxLength="4"
                 value={tel2}
-                ref={ref => (inputRef.current[6]) = ref}
+                ref={(ref) => (inputRef.current[6] = ref)}
                 onChange={onChange}
                 onKeyPress={onKeyPress}
               />
@@ -215,7 +213,7 @@ const FormInput = () => {
                 size="4"
                 maxLength="4"
                 value={tel3}
-                ref={ref => (inputRef.current[7]) = ref}
+                ref={(ref) => (inputRef.current[7] = ref)}
                 onChange={onChange}
                 onKeyPress={onKeyPress}
               />
@@ -229,7 +227,7 @@ const FormInput = () => {
                 name="email1"
                 size="10"
                 value={email1}
-                ref={ref => (inputRef.current[8]) = ref}
+                ref={(ref) => (inputRef.current[8] = ref)}
                 onChange={onChange}
                 onKeyPress={onKeyPress}
               />
@@ -290,7 +288,7 @@ const FormInput = () => {
                 rows="5"
                 cols="50"
                 value={intro}
-                ref={ref => (inputRef.current[9]) = ref}
+                ref={(ref) => (inputRef.current[9] = ref)}
                 onChange={onChange}
                 onKeyPress={onKeyPress}
               ></textarea>
@@ -298,7 +296,12 @@ const FormInput = () => {
           </tr>
           <tr>
             <td colSpan="2" align="center" width="500">
-              <input type="button" value="입력" onClick={onClick} ref={ref => (inputRef.current[10]) = ref} />
+              <input
+                type="button"
+                value="입력"
+                onClick={onClick}
+                ref={(ref) => (inputRef.current[10] = ref)}
+              />
               <input type="reset" name="reset" value="취소" />
             </td>
           </tr>
