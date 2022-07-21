@@ -1,11 +1,49 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import MemberTemplate from './components/MemberTemplate';
 import MemberInsert from './components/MemberInsert';
 import MemberList from './components/MemberList';
+import TableModel from './components/TableModel';
 
 const App = () => {
+  const [values, setValues] = useState({
+    idx: '',
+    id: '',
+    password: '',
+    email: '',
+    gender: '',
+  });
   const [members, setMembers] = useState([]);
   const nextIdx = useRef(1);
+
+  const [show, setShow] = useState(false);
+  const showProps = useCallback(() => {
+    if (members.length !== 0) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  });
+
+  useEffect(showProps, [members]);
+
+  // const onInsert = useCallback(
+  //   (form) => {
+  //     const member = {
+  //       idx: nextIdx.current,
+  //       id: form.id,
+  //       password: form.password,
+  //       email: form.email,
+  //       gender: form.gender,
+  //     };
+  //     console.log(member);
+  //     const memberUpdate = members.filter((member) => member.id !== form.id);
+  //     console.log('form_id : ' + form.id);
+  //     console.log('member.id : ' + member.id);
+  //     setMembers(memberUpdate.concat(member));
+  //     nextIdx.current += 1;
+  //   },
+  //   [members],
+  // );
 
   const onInsert = useCallback(
     (form) => {
@@ -16,9 +54,32 @@ const App = () => {
         email: form.email,
         gender: form.gender,
       };
+      const oldMember = {
+        idx: form.idx,
+        id: form.id,
+        password: form.password,
+        email: form.email,
+        gender: form.gender,
+      };
       console.log(member);
-      setMembers(members.concat(member));
-      nextIdx.current += 1;
+      // const memberUpdate = members.filter((member) => member.id !== form.id);
+      const memberUpdateCheck = members.filter(
+        (member) => member.id === form.id,
+      );
+      if (memberUpdateCheck.length === 0) {
+        setMembers(members.concat(member));
+        nextIdx.current += 1;
+        console.log('체크중입니다.');
+      } else if (memberUpdateCheck.length !== 0) {
+        console.log('old : ' + oldMember);
+        const arr1 = members.slice(0, form.idx - 1);
+        const arr2 = members.slice(form.idx, members.length);
+        setMembers(arr1.concat(oldMember).concat(arr2));
+      }
+
+      // console.log('form_id : ' + form.id);
+      // console.log('member.id : ' + member.id);
+      // setMembers(memberUpdate.concat(member));
     },
     [members],
   );
@@ -34,7 +95,17 @@ const App = () => {
     (idx) => {
       const memberCheck = members.filter((member) => member.idx === idx)[0];
       console.log(memberCheck);
-      return memberCheck;
+
+      const nextValues = {
+        ...values,
+        idx: memberCheck.idx,
+        id: memberCheck.id,
+        password: memberCheck.password,
+        email: memberCheck.email,
+        gender: memberCheck.gender,
+      };
+
+      setValues(nextValues);
     },
     [members],
   );
@@ -52,16 +123,9 @@ const App = () => {
 
   return (
     <MemberTemplate>
-      <MemberInsert onInsert={onInsert} />
+      <MemberInsert onInsert={onInsert} values={values} />
       <table>
-        <tr>
-          <td>No.</td>
-          <td>아이디</td>
-          <td>비밀번호</td>
-          <td>이메일</td>
-          <td>성별</td>
-          <td>&nbsp;</td>
-        </tr>
+        {show && <TableModel />}
         <MemberList
           members={members}
           onRemoveCheck={onRemoveCheck}
