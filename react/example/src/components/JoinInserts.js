@@ -28,13 +28,14 @@ const JoinInserts = ({ onInsert, form, onUpdate }) => {
     } else {
       onUpdate(value);
     }
-    setValue({
-      num: 0,
-      id: "",
-      password: "",
-      email: "",
-      gender: "",
-    });
+    console.log("insert", value);
+    // setValue({
+    //   num: 0,
+    //   id: "",
+    //   password: "",
+    //   email: "",
+    //   gender: "",
+    // });
     formRef.current.reset();
     e.preventDefault();
   };

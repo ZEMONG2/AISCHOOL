@@ -14,6 +14,7 @@ function App() {
 
   const onInsert = useCallback(
     (value) => {
+      console.log("App", value);
       value.num = nextNum.current;
       setJoins(joins.concat(value));
       nextNum.current += 1;

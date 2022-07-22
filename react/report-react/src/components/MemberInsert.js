@@ -2,6 +2,7 @@ import { useCallback, useState, useRef, useEffect } from 'react';
 
 const MemberInsert = ({ values, onInsert }) => {
   const inputRef = useRef([]);
+  const formRef = useRef();
   const [form, setForm] = useState({
     idx: '',
     id: '',
@@ -39,10 +40,18 @@ const MemberInsert = ({ values, onInsert }) => {
 
   const onChange = useCallback(
     (e) => {
+      // if (inputRef.current[3].checked == true) {
+      //   inputRef.current[3].value = '남';
+      // } else if (inputRef.current[4].checked == true) {
+      //   inputRef.current[4].value = '여';
+      // }
+
       const nextForm = {
         ...form,
         [e.target.name]: e.target.value,
       };
+      console.log('성별확인 :' + [e.target.name] + ':' + e.target.value);
+      console.log('라디오 :' + e.target.name);
       // setForm(nextForm.filter(([e.target.name] === 'gender') !== checked));
 
       setForm(nextForm);
@@ -59,9 +68,9 @@ const MemberInsert = ({ values, onInsert }) => {
         id: '',
         password: '',
         email: '',
-        gender: e.target.reset(),
+        gender: '',
       };
-
+      formRef.current.reset();
       // formDatas.filter((formData) => formData.checked !== false);
       // e.target.input.prop('checked', false);
       setForm(formDatas);
@@ -73,7 +82,7 @@ const MemberInsert = ({ values, onInsert }) => {
   const { idx, id, password, email, gender, checked } = form;
 
   return (
-    <form className="MemberInsert" onSubmit={onSubmit}>
+    <form className="MemberInsert" onSubmit={onSubmit} ref={formRef}>
       <table>
         <tr>
           <td>아이디</td>
