@@ -15,6 +15,7 @@ const FormInput = () => {
   // const tel2Ref = useRef(null);
   // const tel3Ref = useRef(null);
   // const introRef = useRef(null);
+
   const [form, setForm] = useState({
     id: "",
     pw1: "",
