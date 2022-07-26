@@ -101,7 +101,9 @@ const App = () => {
       {data && (
         <textarea
           rows={7}
-          value={JSON.stringify(data, null, 2)}
+          value={JSON.stringify(data, null, 2)
+            .replace("<b>", "")
+            .replace("</b>", "")}
           readOnly={true}
         />
       )}
