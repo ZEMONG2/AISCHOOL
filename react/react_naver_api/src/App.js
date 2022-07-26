@@ -10,6 +10,11 @@ const App = () => {
   const NAVER_CLIENT_ID = "BFw6Z_s_WT32JVXE00Dm";
   const NAVER_CLIENT_SECRET = "VcUjlh1Aiz";
 
+  //문자열 대체
+  // const test = "<b>마블</b><b>마블</b><b>마블</b>";
+  // const nextTest = test.replace(/<b>/g, "").replace(/<\/b>/g, "");
+  // console.log(nextTest);
+
   // 검색어 상태 업데이트
   const onChange = (e) => {
     setSearch(e.target.value);
