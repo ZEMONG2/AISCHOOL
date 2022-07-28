@@ -16,7 +16,7 @@ const KinListBlock = styled.div`
   }
 `;
 
-const KinList = ({ data, category, cnt, check }) => {
+const KinList = ({ data, category, cnt, check, counter }) => {
   const [items, setItems] = useState(null);
   const [loading, setLoading] = useState(false);
   const NAVER_CLIENT_ID = "BFw6Z_s_WT32JVXE00Dm";
@@ -28,6 +28,7 @@ const KinList = ({ data, category, cnt, check }) => {
   console.log(searchData);
 
   console.log("searchData: ", searchData);
+
   const str = `/v1/search/${searchCategory}?query=${searchData}`;
   console.log(str);
   useEffect(() => {
@@ -41,7 +42,7 @@ const KinList = ({ data, category, cnt, check }) => {
               // query: { search }, //이미지 검색 텍스트
               //   query: searchData, //이미지 검색 텍스트
               // start: 1, // 검색 시작 위치
-              display: 5, // 가져올 이미지 갯수
+              display: 50, // 가져올 이미지 갯수
               // sort: "sim", // 정렬 유형(sim:유사도)
             },
             headers: {
@@ -52,7 +53,9 @@ const KinList = ({ data, category, cnt, check }) => {
           .then((response) => {
             //response.data.items : 데이터중 아이템 부분만 추출하여 상태 업데이트
             setItems(response.data.items);
+            console.log("수량 : ", response.data.items.length);
             console.log(response.data.items);
+            counter(response.data.items.length);
           });
       } catch (e) {
         console.log(e);
@@ -88,22 +91,5 @@ const KinList = ({ data, category, cnt, check }) => {
     );
   }
 };
-// const sampleItem = {
-//   title: "제목",
-//   link: "https://google.com",
-//   description: "내용",
-// };
-
-// const KinList = () => {
-//   return (
-//     <KinListBlock>
-//       <KinItem item={sampleItem} />
-//       <KinItem item={sampleItem} />
-//       <KinItem item={sampleItem} />
-//       <KinItem item={sampleItem} />
-//       <KinItem item={sampleItem} />
-//     </KinListBlock>
-//   );
-// };
 
 export default KinList;
