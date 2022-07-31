@@ -60,38 +60,18 @@ const KinItem = ({ item, searchCategory }) => {
   //   const newActor = "";
   const newTitle = item.title.replace(/<b>/g, "").replace(/<\/b>/g, "");
   const newLink = item.link.replace(/<b>/g, "").replace(/<\/b>/g, "");
-  const newDescription =
-    item.description &&
-    item.description.replace(/<b>/g, "").replace(/<\/b>/g, "");
+  // const newDescription =
+  //   item.description &&
+  //   item.description.replace(/<b>/g, "").replace(/<\/b>/g, "");
   const newActor = item.actor && item.actor.replace(/\|/g, ", ");
   const newDirector = item.director && item.director.replace(/\|/g, "");
-
+  const testing = {
+    backgroundImage: `url(${item.image})`,
+    width: "250px",
+    height: "400px",
+  };
   return (
     <KinItemBlock>
-      {/* {searchCategory === "kin" ? (
-        <div className="contents">
-          <h2>
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              {title}
-            </a>
-          </h2>
-          <p>{description}</p>
-        </div>
-      ) : searchCategory === "movie" ? (
-        <div>
-          <div className="thumbnail">
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <img src={image} alt="thumbnail" />
-            </a>
-          </div>
-          <div className="contents">
-            <h3>{title}</h3>
-            <p>{director}</p>
-            <p>{actor}</p>
-            <p>{userRating}</p>
-          </div>
-        </div>
-      ) : null} */}
       {searchCategory === "kin" ? (
         <div className="contents">
           <h2>
@@ -99,13 +79,13 @@ const KinItem = ({ item, searchCategory }) => {
               {newTitle}
             </a>
           </h2>
-          <p>{newDescription}</p>
+          <p>{item.description}</p>
         </div>
       ) : searchCategory === "movie" ? (
         <div>
-          <div className="thumbnail">
+          <div className="thumbnail" style={testing}>
             <a href={item.link} target="_blank" rel="noopener noreferrer">
-              <img src={item.image} alt="thumbnail" />
+              {/* <img src={item.image} alt="thumbnail" /> */}
             </a>
           </div>
           <div className="contents">

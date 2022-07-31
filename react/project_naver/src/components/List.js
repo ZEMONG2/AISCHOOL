@@ -1,22 +1,9 @@
-import styled from "styled-components";
-import KinItem from "./KinItem";
+import Item from "./Item";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import '../css/List.scss';
 
-const KinListBlock = styled.div`
-  box-sizing: border-box;
-  padding-bottom: 3rem;
-  width: 768;
-  margin: 0 auto;
-  margin-top: 2rem;
-  @media screen and (min-width: 768px) {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-`;
-
-const KinList = ({ data, category, cnt, check, counter }) => {
+const List = ({ data, category, cnt, check }) => {
   const [items, setItems] = useState(null);
   const [loading, setLoading] = useState(false);
   const NAVER_CLIENT_ID = "BFw6Z_s_WT32JVXE00Dm";
@@ -28,7 +15,6 @@ const KinList = ({ data, category, cnt, check, counter }) => {
   console.log(searchData);
 
   console.log("searchData: ", searchData);
-
   const str = `/v1/search/${searchCategory}?query=${searchData}`;
   console.log(str);
   useEffect(() => {
@@ -42,7 +28,7 @@ const KinList = ({ data, category, cnt, check, counter }) => {
               // query: { search }, //이미지 검색 텍스트
               //   query: searchData, //이미지 검색 텍스트
               // start: 1, // 검색 시작 위치
-              display: 50, // 가져올 이미지 갯수
+              display: 100, // 가져올 이미지 갯수
               // sort: "sim", // 정렬 유형(sim:유사도)
             },
             headers: {
@@ -54,7 +40,6 @@ const KinList = ({ data, category, cnt, check, counter }) => {
             //response.data.items : 데이터중 아이템 부분만 추출하여 상태 업데이트
             setItems(response.data.items);
             console.log(response.data.items);
-            counter(response.data.total);
           });
       } catch (e) {
         console.log(e);
@@ -63,10 +48,10 @@ const KinList = ({ data, category, cnt, check, counter }) => {
     };
     fetchData();
   }, [cnt]);
-  //대기 중일 때
-  if (loading) {
-    return <KinListBlock>대기 중...</KinListBlock>;
-  }
+  // //대기 중일 때
+  // if (loading) {
+  //   return <div>대기 중...</div>;
+  // }
   // 아직 items 값이 설정되지 않았을 때
   if (!items) {
     return null;
@@ -78,17 +63,18 @@ const KinList = ({ data, category, cnt, check, counter }) => {
   } else if (check) {
     // items 값이 유효할 때
     return (
-      <KinListBlock>
+      // <div className="List">
+      <div className={category =='image' ? 'List ImageList' : 'List'}>
         {items.map((item) => (
-          <KinItem
+          <Item
             key={item.link}
             item={item}
             searchCategory={searchCategory}
           />
         ))}
-      </KinListBlock>
+      </div>
     );
   }
 };
 
-export default KinList;
+export default List;

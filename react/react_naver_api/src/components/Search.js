@@ -37,8 +37,15 @@ const Search = ({ onChangeCategori, searchCheckData, onKeyPress, onClick }) => {
 
   const onClickInput = () => {
     setSearchCheck("");
-    btnRef.current[6].placeholder = "카테고리 선택";
+    // btnRef.current[6].placeholder = "카테고리 선택";
     onClick();
+  };
+  const onKeyPress2 = (e) => {
+    setSearchCheck("");
+    if (e.key === "Enter") {
+      // btnRef.current[6].placeholder = "카테고리 선택";
+      onKeyPress();
+    }
   };
   return (
     <>
@@ -98,7 +105,7 @@ const Search = ({ onChangeCategori, searchCheckData, onKeyPress, onClick }) => {
         name="searchWord"
         onChange={onChangeInput}
         value={searchCheck}
-        onKeyPress={onKeyPress}
+        onKeyPress={onKeyPress2}
         ref={(ref) => (btnRef.current[6] = ref)}
         placeholder="카테고리 선택"
       />

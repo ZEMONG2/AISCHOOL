@@ -2,7 +2,6 @@ import KinList from "./components/KinList";
 import { useState } from "react";
 import Search from "./components/Search";
 import "./App.css";
-
 const App = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState("");
@@ -50,12 +49,13 @@ const App = () => {
 
   // 검색어 입력 후 엔터 시 자동 버튼 클릭
   const onKeyPress = (e) => {
-    if (e.key === "Enter") {
-      onClick();
-    }
+    // if (e.key === "Enter") {
+    onClick();
+    // }
   };
   return (
     <>
+      {/* <img src="./img/logo.png" /> */}
       <Search
         onChangeCategori={onChangeCategori}
         searchCheckData={searchCheckData}

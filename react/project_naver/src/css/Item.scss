@@ -1,0 +1,278 @@
+// 영화 아이템
+.MovieItem,
+.ShopItem,
+.BlogItem,
+.NewsItem {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    padding: 20px 20px 30px;
+    display: flex;
+
+
+    .thumbnail {
+        margin-right: 40px;
+        width: 130px;
+        position: relative;
+        overflow: hidden;
+        background: #000;
+
+        &::before {
+            content: 'No Img';
+            color: rgba(255, 255, 255, 0.3);
+            font-style: italic;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        img {
+            min-width: 130px;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s;
+        }
+    }
+}
+
+.contents {
+    width: calc(100% - 130px);
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+
+        span:first-child {
+            margin-right: 5px;
+        }
+    }
+
+    .txt {
+        margin-bottom: 20px;
+    }
+
+}
+
+.btn-more {
+    font-size: 0.8rem;
+    color: #555;
+    border: 1px solid #444;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    transition: all 0.4s;
+    position: relative;
+
+    span {
+        position: relative;
+    }
+
+    &::before {
+        content: '';
+        width: 0;
+        height: 100%;
+        background: #444;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: all 0.4s;
+        z-index: 0;
+    }
+
+    &:hover {
+        color: rgba(255, 255, 255, 0.9);
+        cursor: pointer;
+
+        &::before {
+            width: 100%;
+        }
+    }
+}
+
+// .thumbnail.on {
+//     img {
+//         transform: translate(-50%, -50%) scale(1.08) rotate(0.1deg);
+//     }
+// }
+
+
+// 쇼핑몰 아이템
+.ShopItem {
+    .thumbnail {
+        width: 160px;
+        background-color: #fff;
+    }
+
+    .l_price {
+        font-size: 1.2rem;
+        color: #ff2200;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        display: flex;
+        margin-bottom: 20px;
+
+        li {
+            color: #666;
+            padding-left: 20px;
+            position: relative;
+            font-size: 1rem;
+            font-weight: 300;
+
+
+            &::before {
+                content: '>';
+                position: absolute;
+                color: #bbb;
+                font-weight: 200;
+                top: 50%;
+                left: 5px;
+                transform: translateY(-50%);
+            }
+
+            &:first-child {
+                padding-left: 0;
+
+                &::before {
+                    content: '';
+                }
+            }
+        }
+    }
+}
+
+// 지식인 아이템
+.KinItem {
+    width: 100%;
+    padding: 20px 20px 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+
+    .contents {
+        width: 100%;
+    }
+
+}
+
+.ImageList .Item {
+    // padding: 10px 5px;
+    width: 20%;
+    float: left;
+
+    & .Images {
+        .thumbnail a {
+            // width: 20%;
+            display: block;
+            position: relative;
+            transition: all 0.4s;
+            overflow: hidden;
+
+            img {
+                width: 90%;
+                height: 220px;
+                display: block;
+                margin: 5% auto;
+                border-radius: 20px;
+            }
+
+            p {
+                opacity: 0;
+                position: absolute;
+                transition: all 0.4s;
+                bottom: 25px;
+                padding: 30px;
+                box-sizing: border-box;
+                color: rgba(255, 255, 255, 0.8);
+
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 1.65;
+                height: 1.65em;
+                white-space: normal;
+                word-break: break-all;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+            }
+
+            &::before {
+                content: '';
+                width: 90%;
+                height: 90%;
+                background: rgba(0, 0, 0, 0.8);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                transition: all 0.4s;
+                border-radius: 20px;
+            }
+
+            &:hover {
+
+                p {
+                    opacity: 1;
+                }
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+
+// 블로그 아이템
+.BlogItem {
+    .blogger {
+        display: flex;
+        color: #777;
+        margin-bottom: 10px;
+
+        .b-img {
+            background: #1196D9;
+            border-radius: 50%;
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            position: relative;
+            overflow: hidden;
+            margin-right: 10px;
+
+            svg {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+    }
+
+    .contents {
+        width: 100%;
+    }
+
+}
+
+
+// 뉴스아이템
+.NewsItem {
+    .date {
+        color: #666;
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+
+    .contents {
+        width: 100%;
+    }
+}
