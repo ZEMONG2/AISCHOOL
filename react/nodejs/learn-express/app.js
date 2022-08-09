@@ -4,6 +4,18 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const dotenv = require("dotenv");
 const path = require("path");
+//npm i express-mysql-session
+const MySQLStore = require("express-mysql-session");
+
+const options = {
+  host: "localhost",
+  port: 3306,
+  user: "root",
+  password: "123456",
+  database: "bbs",
+};
+
+var sessionStore = new MySQLStore(options);
 
 dotenv.config();
 const app = express();
@@ -19,6 +31,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     secret: process.env.COOKIE_SECRET,
+    store: sessionStore,
     cookie: {
       httpOnly: true,
       secure: false,
@@ -29,6 +42,11 @@ app.use(
 
 app.use((req, res, next) => {
   console.log("모든 요청에 다 실행됩니다.");
+  sess = req.session;
+  sess.username = "zemong";
+  console.log("req.session.username => ", req.session.username);
+  console.log("req.sessionID => ", req.sessionID);
+  console.log("req.session => ", req.session);
   next();
 });
 
