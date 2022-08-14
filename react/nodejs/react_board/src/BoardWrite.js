@@ -1,6 +1,36 @@
-import React from "react";
+import axios from "axios";
+import React, { useRef } from "react";
 
-const BoardWrite = () => {
+const BoardWrite = ({ handlelist }) => {
+  const titleRef = useRef();
+  const writerRef = useRef();
+  const contentRef = useRef();
+
+  const handleInsert = () => {
+    console.log("handleInsert =>", titleRef.current.value);
+    if (titleRef.current.value === "" || titleRef.current.value === undefined) {
+      alert("제목을 입력하세요!!!");
+      titleRef.current.focus();
+      return false;
+    }
+    if (
+      writerRef.current.value === "" ||
+      writerRef.current.value === undefined
+    ) {
+      alert("글쓴이를 입력하세요!!!");
+      writerRef.current.focus();
+      return false;
+    }
+    axios
+      .post("http://localhost:8008/insert", {
+        title: titleRef.current.value,
+        writer: writerRef.current.value,
+        content: contentRef.current.value,
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  };
   return (
     <div>
       <form>
@@ -12,6 +42,7 @@ const BoardWrite = () => {
                 type="text"
                 name="title"
                 size="68"
+                ref={titleRef}
                 placeholder="제목을 입력하세요"
               ></input>
             </td>
@@ -23,6 +54,7 @@ const BoardWrite = () => {
                 type="text"
                 name="writer"
                 size="68"
+                ref={writerRef}
                 placeholder="글쓴이를 입력하세요"
               ></input>
             </td>
@@ -34,13 +66,18 @@ const BoardWrite = () => {
                 rows="5"
                 cols="70"
                 name="content"
+                ref={contentRef}
                 placeholder="내용을 입력하세요"
               ></textarea>
             </td>
           </tr>
           <tr>
             <td colSpan="2" align="center">
-              <input type="button" value="글쓰기"></input>
+              <input
+                type="button"
+                value="글쓰기"
+                onClick={handleInsert}
+              ></input>
               &nbsp;
               <input type="reset" value="취소"></input>
             </td>
