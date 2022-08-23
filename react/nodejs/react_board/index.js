@@ -3,6 +3,10 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser"); //요청정보 처리를 위함
 const cors = require("cors"); // 교차허용
 
+// const iconv = require("iconv-lite") // 한글 디코딩 npm install iconv-lite
+// iconv.decode('파일명',"utf-8").toString()
+// path.extname("파일") : 확장자 추출
+
 const app = express(); //서버생성
 const PORT = process.env.port || 8008; //포트설정
 
