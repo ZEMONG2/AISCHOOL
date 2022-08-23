@@ -69,7 +69,7 @@ const BoardList = ({
                 <BoardArticle
                   actionmode={actionmode}
                   article={article}
-                  ket={article.board_num}
+                  key={article.board_num}
                   handlelist={handlelist}
                   handledetail={handledetail}
                   handleupdateform={handleupdateform}
